@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: inter;
+  src: url(./fonts/Inter-Regular.ttf);
+}
+
+@font-face {
+  font-family: inter-bold;
+  src: url(./fonts/Inter-Bold.ttf);
+}
+
+
+@layer base {
+  .font-inter{
+    font-family: inter;
+  }
+  
+  .font-inter-bold{
+    font-family: inter-bold;
+  }
+  
+  .bg-gradient {
+    @apply bg-gradient-to-r from-green-400 to-green-900
+  }
+  
+  .bg-primary {
+    @apply bg-[#040D12]
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #333;
+  }
+  
+  .wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+  }
+  
+  .eye {
+    width: 240px;
+    height: 120px;
+    background: white;
+    display: inline-block;
+    margin: 40px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .ball {
+    width: 40px;
+    height: 40px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 15px solid teal;
+    border-radius: 50%;
+  }
+  
+  .shut {
+    width: 300px;
+    height: 160px;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+  }
+  
+  .shut span {
+    display: block;
+    width: 100%;
+    height: 20%;
+    background: #ff6b6b;
+    border-radius: 0 0 60% 60%;
+    transition: 0.4s all;
+    
+    @keyframes blink {
+      0% {
+        height: 20%;
+      }
+      50% {
+        height: 100%;
+      }
+      100% {
+        height: 20%;
+      }
+    }
+  }
+  
+  .eye:hover > .shut span {
+    height: 100%;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #ccc;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+  .image-item {
+    margin: 10px;
+  }
+  
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .pagination-button {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .pagination-button.active {
+    background-color: #0056b3;
+  }
+}
+
+
+@keyframes blink {
+  0% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 20%;
+  }
+}
